@@ -1,3 +1,0 @@
-joao_albuquerque_news_group_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: JoaoAlbuquerqueNewsGroupBundle:Default:index }

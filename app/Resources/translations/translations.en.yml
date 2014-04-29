@@ -1,0 +1,2 @@
+validation.error.email.missing: 'Email is missing'
+validation.error.email.invalid: 'Email is invalid'

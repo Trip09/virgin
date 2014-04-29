@@ -1,7 +1,7 @@
-# src/JoaoAlbuquerque/NewsGroupBundle/Resources/config/doctrine/NewsGroup.orm.yml
-JoaoAlbuquerque\NewsGroupBundle\Entity\NewsGroup:
+# src/JoaoAlbuquerque/NewsGroupBundle/Resources/config/doctrine/NewsGroupUser.orm.yml
+JoaoAlbuquerque\NewsGroupBundle\Entity\NewsGroupUser:
     type: entity
-    table: news_group
+    table: news_group_user
     id:
         id:
             type: integer
@@ -12,6 +12,7 @@ JoaoAlbuquerque\NewsGroupBundle\Entity\NewsGroup:
         email:
             type: string
             length: 255
+            unique: true
         created_at:
             type: datetime
 

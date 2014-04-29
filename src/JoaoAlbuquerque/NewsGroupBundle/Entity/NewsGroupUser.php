@@ -3,11 +3,19 @@
 namespace JoaoAlbuquerque\NewsGroupBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * NewsGroup
+ * NewsGroupUser
+ * @ORM\Entity
+ * @UniqueEntity(
+ *     fields={"email"},
+ *     errorPath="email",
+ *     message="This email is already registered."
+ * )
  */
-class NewsGroup
+class NewsGroupUser
 {
     /**
      * @var integer
@@ -15,7 +23,7 @@ class NewsGroup
     private $id;
 
     /**
-     * @var string
+     * @Assert\Email()
      */
     private $email;
 

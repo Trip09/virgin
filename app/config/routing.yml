@@ -1,4 +1,7 @@
-joao_albuquerque_news_group:
-    resource: "@JoaoAlbuquerqueNewsGroupBundle/Resources/config/routing.yml"
-    prefix:   /
+homepage:
+    pattern:  /
+    defaults: { _controller: JoaoAlbuquerqueNewsGroupBundle:NewsGroupUser:new }
 
+joao_albuquerque_news_group_user:
+    resource: "@JoaoAlbuquerqueNewsGroupBundle/Controller/NewsGroupUserController.php"
+    type:     annotation
