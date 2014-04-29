@@ -1,0 +1,19 @@
+# src/JoaoAlbuquerque/NewsGroupBundle/Resources/config/doctrine/NewsGroup.orm.yml
+JoaoAlbuquerque\NewsGroupBundle\Entity\NewsGroup:
+    type: entity
+    table: news_group
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        email:
+            type: string
+            length: 255
+        created_at:
+            type: datetime
+
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAtValue ]

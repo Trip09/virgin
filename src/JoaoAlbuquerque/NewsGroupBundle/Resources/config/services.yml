@@ -1,0 +1,7 @@
+parameters:
+#    joao_albuquerque_news_group.example.class: JoaoAlbuquerque\NewsGroupBundle\Example
+
+services:
+#    joao_albuquerque_news_group.example:
+#        class: %joao_albuquerque_news_group.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

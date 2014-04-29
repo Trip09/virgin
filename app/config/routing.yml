@@ -1,0 +1,4 @@
+joao_albuquerque_news_group:
+    resource: "@JoaoAlbuquerqueNewsGroupBundle/Resources/config/routing.yml"
+    prefix:   /
+

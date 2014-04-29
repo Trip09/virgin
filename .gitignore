@@ -1,6 +1,6 @@
 .idea/*
-./app/cache/*
-./app/logs/*
+app/cache/*
+app/logs/*
 
 web/bundles/*
 web/css/*
