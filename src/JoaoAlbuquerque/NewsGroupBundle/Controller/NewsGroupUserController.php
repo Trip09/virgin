@@ -21,8 +21,7 @@ class NewsGroupUserController extends Controller
     /**
      * Creates a new NewsGroupUser entity.
      *
-     * @Route("/new", name="newsgroupuser_create")
-     * @Method("POST")
+     * @Route("/create", name="newsgroupuser_create")
      * @Template("JoaoAlbuquerqueNewsGroupBundle:NewsGroupUser:new.html.twig")
      */
     public function createAction(Request $request)
@@ -66,27 +65,9 @@ class NewsGroupUserController extends Controller
     }
 
     /**
-     * Displays a form to create a new NewsGroupUser entity.
-     *
-     * @Route("/new", name="newsgroupuser_new")
-     * @Method("GET")
-     * @Template()
-     */
-    public function newAction()
-    {
-        $entity = new NewsGroupUser();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
-    }
-
-    /**
      * Finds and displays a NewsGroupUser entity.
      *
-     * @Route("/{id}", name="newsgroupuser_show")
+     * @Route("/show/{id}", name="newsgroupuser_show")
      * @Method("GET")
      * @Template()
      */
@@ -124,7 +105,7 @@ class NewsGroupUserController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('homepage'));
+        return $this->redirect($this->generateUrl('newsgroupuser_create'));
     }
 
 }

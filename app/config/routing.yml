@@ -1,6 +1,6 @@
 homepage:
     pattern:  /
-    defaults: { _controller: JoaoAlbuquerqueNewsGroupBundle:NewsGroupUser:new }
+    defaults: { _controller: JoaoAlbuquerqueNewsGroupBundle:NewsGroupUser:create }
 
 joao_albuquerque_news_group_user:
     resource: "@JoaoAlbuquerqueNewsGroupBundle/Controller/NewsGroupUserController.php"
