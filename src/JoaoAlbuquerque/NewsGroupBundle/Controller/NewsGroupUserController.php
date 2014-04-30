@@ -31,27 +31,24 @@ class NewsGroupUserController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            // ToDo Buid a Manager and remove this part from the action.
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+            $this->get('news_group.manager.news_group_user')->persist($entity);
 
             return $this->redirect($this->generateUrl('newsgroupuser_show', array('id' => $entity->getId())));
         }
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         );
     }
 
     /**
-    * Creates a form to create a NewsGroupUser entity.
-    *
-    * @param NewsGroupUser $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to create a NewsGroupUser entity.
+     *
+     * @param NewsGroupUser $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createCreateForm(NewsGroupUser $entity)
     {
         $form = $this->createForm(new NewsGroupUserType(), $entity, array(
@@ -73,16 +70,13 @@ class NewsGroupUserController extends Controller
      */
     public function showAction($id)
     {
-        // ToDo Buid a Manager and remove this part from the action.
-        $em = $this->getDoctrine()->getManager();
+        $entity = $this->get('news_group.manager.news_group_user')->find($id);
 
-        $entity = $em->getRepository('JoaoAlbuquerqueNewsGroupBundle:NewsGroupUser')->find($id);
-
-        if (!$entity) {
+        if (null === $entity) {
             throw $this->createNotFoundException('Unable to find NewsGroupUser entity.');
         }
 
-        return array('entity'=> $entity);
+        return array('entity' => $entity);
     }
 
     /**
@@ -92,17 +86,10 @@ class NewsGroupUserController extends Controller
      */
     public function deleteAction($id)
     {
-        // ToDo Buid a Manager and remove this part from the action.
-        $em = $this->getDoctrine()->getManager();
+        $result = $this->get('news_group.manager.news_group_user')->remove($id);
 
-        if ( null !== $entity = $em->getRepository('JoaoAlbuquerqueNewsGroupBundle:NewsGroupUser')->find($id)) {
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find NewsGroupUser entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
+        if (false === $result) {
+            throw $this->createNotFoundException('Unable to find NewsGroupUser entity.');
         }
 
         return $this->redirect($this->generateUrl('newsgroupuser_create'));

@@ -1,5 +1,7 @@
-#parameters:
-#    news_group.manager.news_group_user.class:
-#services:
-#    news_group.manager.news_group_user:
-#        class: "%news_group.manager.news_group_user.class%"
+parameters:
+    news_group.manager.news_group_user.class: JoaoAlbuquerque\NewsGroupBundle\Manager\NewsGroupUser
+
+services:
+    news_group.manager.news_group_user:
+        class:     "%news_group.manager.news_group_user.class%"
+        arguments: ["@doctrine.orm.entity_manager"]

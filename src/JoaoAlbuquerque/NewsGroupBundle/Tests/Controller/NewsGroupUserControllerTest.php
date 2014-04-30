@@ -3,6 +3,7 @@
 namespace JoaoAlbuquerque\NewsGroupBundle\Tests\Controller;
 
 use JoaoAlbuquerque\NewsGroupBundle\Entity\NewsGroupUser;
+use JoaoAlbuquerque\NewsGroupBundle\Manager\NewsGroupUser as ManagerNewsGroupUser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class NewsGroupUserControllerTest extends WebTestCase
